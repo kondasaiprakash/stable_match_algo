@@ -85,6 +85,7 @@ void main()
     }
     int temp = 0;
     int count = 0;
+    int power_front = 0;
     i = 1;
     while(i < n+1)
     {
@@ -122,10 +123,12 @@ void main()
                     if(w_pre[m_pre[i][m_pre[i][0]+1]][k] == i)
                     {
                         temp = en_wmn[m_pre[i][m_pre[i][0]+1]];
-                        count = 1;
+                        en_men[temp] = 0;
+                        // count = 1;
                         en_wmn[m_pre[i][m_pre[i][0]+1]] = i;
                         w_pre[m_pre[i][m_pre[i][0]+1]][0] = k;
                         m_pre[i][0] = m_pre[i][0] + 1;
+                        en_men[i] = m_pre[i][0];
                         i = i +1;
                         break;
 
@@ -135,23 +138,36 @@ void main()
                 if(temp == 0)
                 {
                     m_pre[i][0] = m_pre[i][0] + 1;
+                    if(count == 1)
+                    {
+                        continue;
+                    }
                 }
-                else if(count == 1)
-                {
+                else if(count == 0){
                     int x = i;
                     i = temp;
-                    temp = x;
-
+                    temp = 0;
+                    power_front = x;
+                    count = 1;
+                    continue;
 
                 }
                 else
                 {
-                    i = temp;
+                    i= temp; 
                     temp = 0;
-                    count = 0;
+                    continue;
                 }
                 
+    
                 
+                
+            }
+            if(count == 1)
+            {
+                i = power_front;
+                temp = 0;
+                count = 0;
             }
             
         }
