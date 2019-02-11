@@ -17,18 +17,6 @@ int *shuffle(int *one,int size)
     return one;
 }
 
-// void print_matrix(int *one,int size)
-// {
-//     int i,j ;
-//     for(i = 1; i < size; i++)
-//     {
-//         for(j = 1; j < size; j++)
-//         {
-//             printf("%d  ",*(one[i]+j));
-//         }
-//         printf("\n");
-//     }
-// }
 void main()
 {
     int n;
@@ -45,6 +33,7 @@ void main()
         m_pre[i][0] = 0;
         w_pre[i][0] = 0;
     }
+
     for (i = 1; i < n + 1; i++)
     {
         for (j = 1; j < n + 1; j++)
@@ -111,7 +100,7 @@ void main()
                 // if(count != 0)
                 // {
                 //     count = count - 1;
-                // }
+                // }cl
             } 
             else
             {
@@ -180,7 +169,25 @@ void main()
     for(i = 1; i < n + 1; i++)
     {
         printf("%d->",en_men[i]);
-    }
 
+    }
+    printf("\n");
+    for(i = 1; i < n + 1; i++)
+    {
+        printf(" %d -> %d\n",i,en_wmn[i]);
+        
+    }
+    printf("\n printing avg : ");
+    float men_avg = 0;
+    float wmen_avg = 0;
+    for(i = 1; i < n + 1; i++)
+    {
+
+        men_avg += m_pre[i][0];
+        // w_pre[i][0] = 0;
+        wmen_avg += w_pre[i][0];
+    }
+    printf("\n men_avg : %f",men_avg/n);
+    printf("\n women_avg : %f",wmen_avg/n);
 
 }
